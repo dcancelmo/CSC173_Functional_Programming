@@ -74,6 +74,7 @@
 
 
 ;Math functions
+
 (define (absH num)
   (cond
     [(> num 0) num]
@@ -105,12 +106,14 @@
   (gcdH num1 num2)
   )
 
-
-;Extra credit functions
-
+;Extra credit function
 (define (lcmH num1 num2)
   (/ (* num1 num2) (gcd num1 num2))
   )
 (define (lcm num1 num2)
   (lcmH num1 num2)
   )
+
+
+;Required functions
+
