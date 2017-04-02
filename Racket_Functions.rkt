@@ -42,11 +42,22 @@
 (define (cardinalityH listP counter)
   (cond
     [(empty? listP) counter]
-    ;[(eq? item (car listP)) counter]
     [else (cardinalityH (cdr listP) (+ counter 1))]
     )
   )
 
 (define (cardinality listP)
   (cardinalityH listP 0)
+  )
+
+(define (memberH item listP counter)
+    (cond
+      [(empty? listP) #f]
+      [(eq? item (car listP)) #t]
+      [else (memberH item (cdr listP) (+ counter 1))]
+    )
+  )
+
+(define (member item listP)
+  (memberH item listP 0)
   )
