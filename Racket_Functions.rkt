@@ -83,3 +83,14 @@
 (define (abs num)
   (absH num)
   )
+
+(define (factorialH num)
+  (cond
+    [(eq? num 0) 1]
+    [(eq? num 1) num]
+    [else (* num (factorialH (- num 1)))]
+    )
+  )
+(define (factorial num)
+  (factorialH num)
+  )
