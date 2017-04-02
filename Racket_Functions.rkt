@@ -72,3 +72,13 @@
 (define (union set1 set2)
   (unionH set1 set2)
   )
+
+;Math functions
+(define (absH num)
+  (= temp num)
+  (+ num num)
+  (+ num temp)
+  )
+(define (abs num)
+  (absH num)
+  )
