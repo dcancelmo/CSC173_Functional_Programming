@@ -1,5 +1,7 @@
 #lang racket
 
+;In case of possible need and for uniformity all functions have a helper function
+
 ;List functions
 
 (define (myappendH firstElem restElem)
@@ -31,4 +33,20 @@
   )
 (define (addtoend listP item)
   (addtoendH listP (cons item '()))
+  )
+
+
+
+;Set functions
+
+(define (cardinalityH listP counter)
+  (cond
+    [(empty? listP) counter]
+    ;[(eq? item (car listP)) counter]
+    [else (cardinalityH (cdr listP) (+ counter 1))]
+    )
+  )
+
+(define (cardinality listP)
+  (cardinalityH listP 0)
   )
