@@ -75,9 +75,10 @@
 
 ;Math functions
 (define (absH num)
-  (= temp num)
-  (+ num num)
-  (+ num temp)
+  (cond
+    [(> num 0) num]
+    [else (* num -1)]
+    )
   )
 (define (abs num)
   (absH num)
