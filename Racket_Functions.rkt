@@ -39,25 +39,36 @@
 
 ;Set functions
 
-(define (cardinalityH listP counter)
+(define (cardinalityH setP counter)
   (cond
-    [(empty? listP) counter]
-    [else (cardinalityH (cdr listP) (+ counter 1))]
+    [(empty? setP) counter]
+    [else (cardinalityH (cdr setP) (+ counter 1))]
     )
   )
-
-(define (cardinality listP)
-  (cardinalityH listP 0)
+(define (cardinality setP)
+  (cardinalityH setP 0)
   )
 
-(define (memberH item listP counter)
+(define (memberH item setP counter)
     (cond
-      [(empty? listP) #f]
-      [(eq? item (car listP)) #t]
-      [else (memberH item (cdr listP) (+ counter 1))]
+      [(empty? setP) #f]
+      [(eq? item (car setP)) #t]
+      [else (memberH item (cdr setP) (+ counter 1))]
     )
   )
+(define (member item setP)
+  (memberH item setP 0)
+  )
 
-(define (member item listP)
-  (memberH item listP 0)
+(define (unionH set1 set2)
+    (cond
+      [(empty? set1) set2]
+      [(empty? set2) set1]
+      [(eq? set1 set2) set1]
+      [(eq? (car set1) (car set2)) (cons (car set1) (unionH (cdr set1) (cdr set2)))]
+      [else (cons (car set1) (cons (car set2)(unionH (cdr set1) (cdr set2))))]
+    )
+  )
+(define (union set1 set2)
+  (unionH set1 set2)
   )
