@@ -36,7 +36,6 @@
   )
 
 
-
 ;Set functions
 
 (define (cardinalityH setP counter)
@@ -73,6 +72,7 @@
   (unionH set1 set2)
   )
 
+
 ;Math functions
 (define (absH num)
   (cond
@@ -93,4 +93,24 @@
   )
 (define (factorial num)
   (factorialH num)
+  )
+
+(define (gcdH num1 num2)
+  (cond
+    [(eq? num2 0) num1]
+    [else (gcdH num2 (remainder num1 num2))]
+    )
+  )
+(define (gcd num1 num2)
+  (gcdH num1 num2)
+  )
+
+
+;Extra credit functions
+
+(define (lcmH num1 num2)
+  (/ (* num1 num2) (gcd num1 num2))
+  )
+(define (lcm num1 num2)
+  (lcmH num1 num2)
   )
