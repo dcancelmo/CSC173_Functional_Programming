@@ -124,7 +124,7 @@
             ;}
         ;}
   (cond
-    [(<= counter (/ num 2)) 0]
+    [(> counter (/ num 2)) sumP]
     [(eq? (remainder num counter) 0) (+ sumP (+ counter (perfectH num sumP (+ counter 1))))]
     [else (perfectH num sumP (+ counter 1))]
     )
