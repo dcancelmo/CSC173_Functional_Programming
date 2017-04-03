@@ -118,11 +118,6 @@
 ;Required functions
 
 (define (perfectH num sumP counter)
-    ;for(int i=1;i<=number/2;i++){
-            ;if(number%i == 0){
-                ;temp += i;
-            ;}
-        ;}
   (cond
     [(> counter (/ num 2)) sumP]
     [(eq? (remainder num counter) 0) (+ sumP (+ counter (perfectH num sumP (+ counter 1))))]
@@ -134,4 +129,14 @@
     [(eq? (perfectH num 0 1) num) #t]
     [else #f]
     )
+  )
+
+(define (abundantH num)
+  (cond
+    [(> (perfectH num 0 1) num) #t]
+    [else #f]
+    )
+  )
+(define (abundant? num)
+  (abundantH num)
   )
