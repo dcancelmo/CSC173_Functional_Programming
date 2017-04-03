@@ -117,3 +117,21 @@
 
 ;Required functions
 
+(define (perfectH num sumP counter)
+    ;for(int i=1;i<=number/2;i++){
+            ;if(number%i == 0){
+                ;temp += i;
+            ;}
+        ;}
+  (cond
+    [(<= counter (/ num 2)) 0]
+    [(eq? (remainder num counter) 0) (+ sumP (+ counter (perfectH num sumP (+ counter 1))))]
+    [else (perfectH num sumP (+ counter 1))]
+    )
+  )
+(define (perfect? num)
+  (cond
+    [(eq? (perfectH num 0 1) num) #t]
+    [else #f]
+    )
+  )
