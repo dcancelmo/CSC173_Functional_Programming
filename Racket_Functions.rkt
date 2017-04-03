@@ -140,3 +140,13 @@
 (define (abundant? num)
   (abundantH num)
   )
+
+(define (deficientH num)
+  (cond
+    [(< (perfectH num 0 1) num) #t]
+    [else #f]
+    )
+  )
+(define (deficient? num)
+  (deficientH num)
+  )
