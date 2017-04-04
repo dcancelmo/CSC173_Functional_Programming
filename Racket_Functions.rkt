@@ -165,6 +165,8 @@
   (deficientH num)
   )
 
+;--------TESTING--------;
+
 ;Testing list functions
 (display "Enter a list for use on list functions: ")
 (define list1 (read))
