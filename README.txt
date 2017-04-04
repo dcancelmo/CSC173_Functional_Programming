@@ -12,6 +12,8 @@ When entering values avoid using quotation marks (both in lists and when asked t
 #t means true (or found)
 #f means false (or not found)
 
+At the end of the program the user can enter more functions to test if they wish on the input line.
+
 Extra credit:
 Bonus functions-
 Least common multiple

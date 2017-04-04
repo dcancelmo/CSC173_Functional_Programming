@@ -61,17 +61,29 @@
   (memberH item setP 0)
   )
 
-(define (unionH set1 set2)
+;(define (unionH set1 set2)
+;    (cond
+;      [(empty? set1) set2]
+;      [(empty? set2) set1]
+;      [(eq? set1 set2) set1]
+;      [(eq? (car set1) (car set2)) (cons (car set1) (unionH (cdr set1) (cdr set2)))]
+;      [else (cons (car set1) (cons (car set2)(unionH (cdr set1) (cdr set2))))]
+;    )
+;  )
+;(define (union set1 set2)
+;  (unionH set1 set2)
+;  )
+
+(define (insertSetH item set1)
     (cond
-      [(empty? set1) set2]
-      [(empty? set2) set1]
-      [(eq? set1 set2) set1]
-      [(eq? (car set1) (car set2)) (cons (car set1) (unionH (cdr set1) (cdr set2)))]
-      [else (cons (car set1) (cons (car set2)(unionH (cdr set1) (cdr set2))))]
+      [(empty? set1) (cons item '())]
+      [(null? item) set1]
+      [(eq? (car set1) item) (cons item (cdr set1))]
+      [else (cons (car set1) (insertSetH item (cdr set1)))]
     )
   )
-(define (union set1 set2)
-  (unionH set1 set2)
+(define (insertSet item set1)
+  (insertSetH item set1)
   )
 
 
@@ -184,11 +196,11 @@
 (display "\n")
 (display "Testing member with set1 and your item:\n")
 (member itemTest set1)
-(display "Enter a second set (as a list) to union with set1: ")
-(define set2 (read))
+(display "Enter an item to insert into set1: ")
+(define setItem (read))
 (display "\n")
-(display "Testing union with set1 and set2\n")
-(union set1 set2)
+(display "Testing insertSet with set1 and your item\n")
+(insertSet setItem set1)
 
 ;Testing math functions
 (display "Enter a number to find its absolute value: ")
