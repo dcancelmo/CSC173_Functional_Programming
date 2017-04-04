@@ -179,7 +179,7 @@
 (display "\n")
 (display "Testing cardinality with this set:\n")
 (cardinality set1)
-(display "Enter an item test if it is in the set: ")
+(display "Enter an item to test if it is in the set: ")
 (define itemTest (read))
 (display "\n")
 (display "Testing member with set1 and your item:\n")
